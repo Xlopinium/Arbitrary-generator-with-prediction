@@ -20,7 +20,7 @@ model = tf.keras.Sequential([
 
 # Compile the model and train on the data
 model.compile(optimizer='adam', loss='mse')
-model.fit(x, y, epochs=350)
+model.fit(x, y, epochs=100)
 
 # Predicting values on the same data
 min_y_pred = model.predict(min_x)

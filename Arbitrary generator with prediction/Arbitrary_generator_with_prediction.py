@@ -1,10 +1,16 @@
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
+from scipy.signal import argrelextrema
 
 # Generating arbitrary data
 x = np.arange(0, 10, 0.1)
 y = np.sin(x)
+
+# Search min
+min_idx = argrelextrema(y, np.less)[0]
+min_x = x[min_idx]
+min_y = y[min_idx]
 
 # Creating a neural network model
 model = tf.keras.Sequential([

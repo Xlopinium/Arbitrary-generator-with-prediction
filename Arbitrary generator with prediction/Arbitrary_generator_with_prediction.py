@@ -20,14 +20,28 @@ model = tf.keras.Sequential([
 
 # Compile the model and train on the data
 model.compile(optimizer='adam', loss='mse')
-model.fit(x, y, epochs=350)
+model.fit(x, y, epochs=100)
 
 # Predicting values on the same data
+min_y_pred = model.predict(min_x)
 y_pred = model.predict(x)
+
+# Search point extrema
+extremums_idx = argrelextrema(y, np.greater)[0] #  find the indices of local extremes in a one-dimensional array
+extremums_x = x[extremums_idx]
+extremums_y = y[extremums_idx]
+
+# Predic val on extrema point
+min_y_pred = model.predict(min_x)
+extremums_y_pred = model.predict(extremums_x)
 
 # Plotting a graph
 plt.plot(x, y, label='True function')
 plt.plot(x, y_pred, label='Predicted function')
+plt.plot(extremums_x, extremums_y, 'ro', label='Extremums')
+plt.plot(extremums_x, extremums_y_pred, 'g^', label='Predicted extremums')
+plt.plot(min_x, min_y_pred, 'ro', label='Predictions at extrema')
+plt.plot(min_x, min_y, 'ko', label='Extrema')
 plt.legend()
 plt.show()
 

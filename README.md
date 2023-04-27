@@ -1,1 +1,5 @@
 # Arbitrary generator with prediction
+
+<a target="_blank" href="https://colab.research.google.com/github/Xlopinium/Arbitrary-generator-with-prediction/blob/master/demonstration-intaraction.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
